@@ -17,19 +17,46 @@
                 dia.horarios.push({'cor':0, 'local':'', 'materia':''})
     }
 
+    import html2canvas from 'html2canvas';
+
+    function baixaImagem() {
+        html2canvas(document.body).then(function(canvas) {
+            let link = canvas.toDataURL()
+            
+            let el: any = document.createElement("a")
+            el.href = link;
+
+            el.click()
+        });
+    }
+
 </script>
 
-<h1>horarios</h1>
+<h1 class="text-3xl">horarios</h1>
 
-<div>
+<p>
+    Salve seus horários, lil bro!
+</p>
+
+<button onclick={()=>{baixaImagem()}}>
+    baixar
+</button>
+
+
+<div class="flex mt-10">
     {#each grade as dia}
-        <div>
-            dia
+    <div class="mr-1">
+
+        dia
+        
+            
             {#each dia.horarios as horario}
-                <div>
+                <div class="bg-zinc-300 w-28 h-20 mt-1 rounded-md p-3">
                     horario
                 </div>
             {/each}
-        </div>
+        
+    </div>
     {/each}
 </div>
+
