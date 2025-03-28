@@ -18,13 +18,19 @@
     }
 
     import html2canvas from 'html2canvas';
-
+    //import ReImg from 'reimg'
+    //import 'reimg'
     function baixaImagem() {
-        html2canvas(document.body).then(function(canvas) {
+
+        
+        let grade: HTMLElement | null = document.getElementById('grade')
+
+        html2canvas(grade!).then(function(canvas) {
             let link = canvas.toDataURL()
             
             let el: any = document.createElement("a")
             el.href = link;
+            el.download = 'grade.png'
 
             el.click()
         });
@@ -43,7 +49,7 @@
 </button>
 
 
-<div class="flex mt-10">
+<div id="grade" class="flex mt-10 w-max">
     {#each grade as dia}
     <div class="mr-1">
 
