@@ -8,7 +8,7 @@ Baixar uma imagem bonitinha da sua grade de horários.
 
 ## libs
 
-- html2canvas
+- html2canvas-pro
 
 ## como rodar
 

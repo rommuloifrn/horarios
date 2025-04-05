@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { Dia } from "../models/dia";
+    import html2canvaspro from 'html2canvas-pro';
 
     let grade: Dia[] = $state([])
 
@@ -16,21 +17,18 @@
             for (let i=0; i<qtdHorarios; i++)
                 dia.horarios.push({'cor':0, 'local':'', 'materia':''})
     }
-
-    import html2canvas from 'html2canvas';
-    //import ReImg from 'reimg'
-    //import 'reimg'
+    
     function baixaImagem() {
 
         
         let grade: HTMLElement | null = document.getElementById('grade')
 
-        html2canvas(grade!).then(function(canvas) {
+        html2canvaspro(grade!).then(function(canvas) {
             let link = canvas.toDataURL()
             
             let el: any = document.createElement("a")
             el.href = link;
-            el.download = 'grade.png'
+            el.download = 'grade gerada por horarios.png'
 
             el.click()
         });
