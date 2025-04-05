@@ -3,6 +3,8 @@
     import "../app.css";
 </script>
 
-<div class="p-3 ">
-    {@render children()}
+<div class="p-3 flex justify-center">
+    <main>
+        {@render children()}
+    </main>
 </div>

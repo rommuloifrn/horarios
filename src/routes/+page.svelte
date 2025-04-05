@@ -52,16 +52,18 @@
 
 </script>
 
-<h1 class="text-3xl">horarios</h1>
+<h1 class="text-3xl">visuaulas</h1>
 
 <p>
-    Salve seus horários, lil bro!
+    Guarde seus horários bem bonitinhos com você.
 </p>
 
-<button class="bg-ctp-mauve text-ctp-base px-3 py-2 rounded cursor-pointer transition hover:bg-ctp-pink font-semibold" onclick={()=>{baixaImagem()}}>
+<button class="bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{baixaImagem()}}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline lucide lucide-download-icon lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
     Baixar
 </button>
-<button class="bg-ctp-mauve text-ctp-base px-3 py-2 rounded cursor-pointer transition hover:bg-ctp-pink font-semibold" onclick={()=>{visualizaImagem()}}>
+<button class="bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{visualizaImagem()}}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline lucide lucide-images-icon lucide-images"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2" rx="2"/></svg>
     Ver
 </button>
 
