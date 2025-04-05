@@ -42,12 +42,12 @@
     Salve seus horários, lil bro!
 </p>
 
-<button onclick={()=>{baixaImagem()}}>
+<button class="bg-ctp-mauve text-ctp-base px-3 py-2 rounded cursor-pointer transition hover:bg-ctp-pink font-semibold" onclick={()=>{baixaImagem()}}>
     baixar
 </button>
 
 
-<div id="grade" class="flex mt-10 w-max">
+<div id="grade" class="flex mt-10 w-max bg-ctp-base">
     {#each grade as dia}
     <div class="mr-1">
 
@@ -55,8 +55,9 @@
         
             
             {#each dia.horarios as horario}
-                <div class="bg-zinc-300 w-28 h-20 mt-1 rounded-md p-3">
-                    horario
+                <div class="bg-ctp-mantle w-28 h-20 mt-1 rounded-md p-3">
+                    <input class="w-full font-medium" type="text" bind:value={horario.materia} name="" id="">
+                    <input class="w-full text-ctp-subtext1" type="text" bind:value={horario.local} name="" id="">
                 </div>
             {/each}
         

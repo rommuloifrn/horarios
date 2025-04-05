@@ -3,6 +3,6 @@
     import "../app.css";
 </script>
 
-<div class="p-3">
+<div class="p-3 ">
     {@render children()}
 </div>
