@@ -34,6 +34,22 @@
         });
     }
 
+    function visualizaImagem() {
+
+        
+        let grade: HTMLElement | null = document.getElementById('grade')
+
+        html2canvaspro(grade!).then(function(canvas) {
+            let link = canvas.toDataURL()
+            
+            let el: any = document.createElement("a")
+            el.href = link;
+            el.target = "_blank"
+
+            el.click()
+        });
+    }
+
 </script>
 
 <h1 class="text-3xl">horarios</h1>
@@ -43,7 +59,10 @@
 </p>
 
 <button class="bg-ctp-mauve text-ctp-base px-3 py-2 rounded cursor-pointer transition hover:bg-ctp-pink font-semibold" onclick={()=>{baixaImagem()}}>
-    baixar
+    Baixar
+</button>
+<button class="bg-ctp-mauve text-ctp-base px-3 py-2 rounded cursor-pointer transition hover:bg-ctp-pink font-semibold" onclick={()=>{visualizaImagem()}}>
+    Ver
 </button>
 
 
