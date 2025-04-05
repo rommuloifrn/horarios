@@ -7,6 +7,16 @@
     let qtdHorarios = 3
     let qtdDias = 5
 
+    let diasDaSemana = [
+        'Segunda',
+        'Terça',
+        'Quarta',
+        'Quinta',
+        'Sexta',
+        'Sábado',
+        'Domingo'
+    ]
+
     montaGrade()
 
     function montaGrade() {
@@ -58,21 +68,12 @@
     Guarde seus horários bem bonitinhos com você.
 </p>
 
-<button class="bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{baixaImagem()}}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline lucide lucide-download-icon lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-    Baixar
-</button>
-<button class="bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{visualizaImagem()}}>
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline lucide lucide-images-icon lucide-images"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2" rx="2"/></svg>
-    Ver
-</button>
-
 
 <div id="grade" class="flex mt-10 w-max bg-ctp-base">
-    {#each grade as dia}
+    {#each grade as dia, index}
     <div class="mr-1">
 
-        dia
+        {diasDaSemana[index]}
         
             
             {#each dia.horarios as horario}
@@ -85,4 +86,13 @@
     </div>
     {/each}
 </div>
+
+<button class="mt-2 bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{baixaImagem()}}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline lucide lucide-download-icon lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+    Baixar
+</button>
+<button class="bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{visualizaImagem()}}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline lucide lucide-images-icon lucide-images"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2" rx="2"/></svg>
+    Ver
+</button>
 
