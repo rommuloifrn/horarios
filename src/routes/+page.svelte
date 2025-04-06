@@ -104,7 +104,7 @@
         {/each}
     </div>
     <div id="marca" hidden class="mt-2">
-        Imagem gerada usando <span class="text-ctp-pink font-bold">visuaulas</span>
+        Imagem gerada usando <span class="text-ctp-pink font-bold">visuaulas</span> (visuaulas.vercel.app)
     </div>
 </div>
 
