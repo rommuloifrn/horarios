@@ -1,6 +1,7 @@
 <script lang="ts">
-    import type { Dia } from "../models/dia";
     import html2canvaspro from 'html2canvas-pro';
+    import type { Dia } from "../models/dia";
+    import type { Horario } from "../models/horario";
 
     let grade: Dia[] = $state([])
 
@@ -19,6 +20,11 @@
 
     montaGrade()
 
+    function inverteHiddenDaMarca() {
+        let marca: HTMLElement | null = document.getElementById('marca')
+        marca!.hidden = !marca!.hidden
+    }
+
     function montaGrade() {
         for (let i=0; i<qtdDias; i++)
             grade.push({'horarios':[]})
@@ -29,9 +35,9 @@
     }
     
     function baixaImagem() {
-
+        inverteHiddenDaMarca()
         
-        let grade: HTMLElement | null = document.getElementById('grade')
+        let grade: HTMLElement | null = document.getElementById('quadro')
 
         html2canvaspro(grade!).then(function(canvas) {
             let link = canvas.toDataURL()
@@ -42,12 +48,13 @@
 
             el.click()
         });
+        inverteHiddenDaMarca()
     }
 
     function visualizaImagem() {
-
+        inverteHiddenDaMarca()
         
-        let grade: HTMLElement | null = document.getElementById('grade')
+        let grade: HTMLElement | null = document.getElementById('quadro')
 
         html2canvaspro(grade!).then(function(canvas) {
             let link = canvas.toDataURL()
@@ -58,33 +65,47 @@
 
             el.click()
         });
+        inverteHiddenDaMarca()
+    }
+
+    function horarioEstaPreenchido(horario: Horario) {
+        return (horario.materia != "") || (horario.local != "")
     }
 
 </script>
 
-<h1 class="text-3xl">visuaulas</h1>
+<h1 class="text-3xl bg-clip-text text-transparent bg-gradient-to-r from-ctp-mauve to-ctp-pink font-bold">visuaulas</h1>
 
 <p>
     Guarde seus horários bem bonitinhos com você.
 </p>
 
-
-<div id="grade" class="flex mt-10 w-max bg-ctp-base">
-    {#each grade as dia, index}
-    <div class="mr-1">
-
-        {diasDaSemana[index]}
+<div id="quadro" class="bg-ctp-base mt-10 p-3">
+    <div id="grade" class="flex w-max">
         
+        {#each grade as dia, index}
+        <div class="mr-1">
+    
+            <span class="text-ctp-surface2">
+                {diasDaSemana[index]}
+            </span>
             
-            {#each dia.horarios as horario}
-                <div class="bg-ctp-mantle w-28 h-20 mt-1 rounded-md p-3">
-                    <input class="w-full font-medium" type="text" bind:value={horario.materia} name="" id="">
-                    <input class="w-full text-ctp-subtext1" type="text" bind:value={horario.local} name="" id="">
-                </div>
-            {/each}
-        
+                
+                {#each dia.horarios as horario}
+                    <div class="group bg-ctp-mantle w-32 h-20 mt-1 rounded-md p-3 {horarioEstaPreenchido(horario) ? "bg-ctp-sky text-ctp-base" : ""}">
+                        <div class="{horarioEstaPreenchido(horario) ? 'block' : 'hidden'} group-hover:block">
+                            <input class="w-full font-medium placeholder:text-ctp-surface2" type="text" bind:value={horario.materia} name="" id="" placeholder="Matéria">
+                            <input class="w-full text-sm placeholder:text-ctp-surface2" type="text" bind:value={horario.local} name="" id="" placeholder="Local">
+                        </div>
+                    </div>
+                {/each}
+            
+        </div>
+        {/each}
     </div>
-    {/each}
+    <div id="marca" hidden class="mt-2">
+        Imagem gerada usando <span class="text-ctp-pink font-bold">visuaulas</span>
+    </div>
 </div>
 
 <button class="mt-2 bg-ctp-mauve hover:bg-[#a887d1] text-ctp-base px-3 py-2 rounded cursor-pointer transition font-semibold" onclick={()=>{baixaImagem()}}>
@@ -96,3 +117,7 @@
     Ver
 </button>
 
+
+<footer class="absolute bottom-[0] mb-6">
+    by <a href="https://github.com/rommuloifrn" target="_blank" class="text-ctp-red underline italic">romulo</a> usando o tema <a target="_blank" class="text-ctp-red" href="https://catppuccin.com/">catppuccin</a>.
+</footer>

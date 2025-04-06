@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+    img {
+        @apply inline-block;
+    }
+}
+
 @plugin "@catppuccin/tailwindcss"; 
 
 @theme inline {
